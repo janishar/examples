@@ -1,0 +1,62 @@
+[  
+   {  
+      "drawable_name":"pic_1",
+      "name":"Sofia",
+      "age":20,
+      "location":"New York"
+   },
+   {
+      "drawable_name":"pic_2",
+      "name":"Roma",
+      "age":22,
+      "location":"California"
+   },
+   {
+      "drawable_name":"pic_3",
+      "name":"Zoya",
+      "age":23,
+      "location":"Atlantic City"
+   },
+   {
+      "drawable_name":"pic_4",
+      "name":"Carol",
+      "age":19,
+      "location":"New City"
+   },
+   {
+      "drawable_name":"pic_5",
+      "name":"Saansa",
+      "age":20,
+      "location":"Manhattan"
+   },
+   {
+      "drawable_name":"pic_6",
+      "name":"Khaleesi",
+      "age":24,
+      "location":"Future Westros"
+   },
+   {
+      "drawable_name":"pic_7",
+      "name":"Heena",
+      "age":21,
+      "location":"India"
+   },
+   {
+      "drawable_name":"pic_8",
+      "name":"Jasmin",
+      "age":23,
+      "location":"Taxes"
+   },
+   {
+      "drawable_name":"pic_9",
+      "name":"Monica",
+      "age":23,
+      "location":"New York"
+   },
+   {
+      "drawable_name":"pic_10",
+      "name":"Phoebe",
+      "age":22,
+      "location":"New York City"
+   }
+]
