@@ -8,10 +8,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     public static Intent getStartIntent(Context context) {
-        Intent intent = new Intent(context, MainActivity.class);
+        Intent intent = new Intent(context, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         return intent;
     }
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textView.setText("After the click state");
-                Intent intent = new Intent(MainActivity.this, SubActivity.class);
+                Intent intent = new Intent(HomeActivity.this, SubActivity.class);
                 startActivity(intent);
             }
         });
@@ -37,5 +37,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         Toast.makeText(this, "Main Activity Resumed", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }

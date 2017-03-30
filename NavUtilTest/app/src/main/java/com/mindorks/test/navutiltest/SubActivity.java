@@ -73,7 +73,7 @@ public class SubActivity extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
-        startActivity(MainActivity.getStartIntent(this));
+        startActivity(HomeActivity.getStartIntent(this));
     }
 
     @Override

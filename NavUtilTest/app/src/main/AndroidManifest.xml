@@ -9,14 +9,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            android:launchMode="singleTop">
-            <!--singleTop is added so that onBackPress can call onNewIntent-->
+
+        <activity android:name=".SplashActivity"
+            android:launchMode="singleTop"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <intent-filter android:label="Nav Utils DeepLinker">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "https://abc.xyz/app” -->
+                <data
+                    android:host="abc.xyz"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".HomeActivity"
+            android:label="Home"
+            android:launchMode="singleTop">
+            <!--singleTop is added so that onBackPress can call onNewIntent-->
         </activity>
 
         <!-- A child of the main activity -->
@@ -24,12 +42,12 @@
             android:name=".SubActivity"
             android:label="Sub Activity"
             android:launchMode="singleTop"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".HomeActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <!--singleTop is added so that onBackPress can call onNewIntent-->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".HomeActivity" />
         </activity>
 
         <!-- A child of the main activity -->
@@ -44,6 +62,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SubActivity" />
         </activity>
+
     </application>
 
 </manifest>
