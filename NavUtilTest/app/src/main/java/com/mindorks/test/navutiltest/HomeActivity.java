@@ -27,8 +27,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textView.setText("After the click state");
-                Intent intent = new Intent(HomeActivity.this, SubActivity.class);
-                startActivity(intent);
+                startActivity(SubActivity.getStartIntent(HomeActivity.this));
             }
         });
     }

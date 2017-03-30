@@ -4,11 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
-import android.util.AttributeSet;
-import android.view.View;
 
 /**
  * Created by janisharali on 31/03/17.
@@ -16,20 +13,14 @@ import android.view.View;
 
 public class SplashActivity extends AppCompatActivity {
 
-    public static Intent getStartIntent(Context context) {
-        Intent intent = new Intent(context, HomeActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        return intent;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        openNextActivity();
+        checkForUriAndOpenActivity();
     }
 
-    private void openNextActivity(){
+    private void checkForUriAndOpenActivity(){
         Uri data = this.getIntent().getData();
         if (data != null && data.isHierarchical()) {
             String uri = this.getIntent().getDataString();
@@ -43,7 +34,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void openDesiredActivity() {
-        HomeActivity.getStartIntent(this);
+        startActivity(HomeActivity.getStartIntent(this));
     }
 
     private boolean handleDeepLink(String uri) {

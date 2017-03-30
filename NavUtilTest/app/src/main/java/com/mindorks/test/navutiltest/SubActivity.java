@@ -35,8 +35,7 @@ public class SubActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 textView.setText("After the click state");
-                Intent intent = new Intent(SubActivity.this, SubSubActivity.class);
-                startActivity(intent);
+                startActivity(SubSubActivity.getStartIntent(SubActivity.this));
             }
         });
     }
