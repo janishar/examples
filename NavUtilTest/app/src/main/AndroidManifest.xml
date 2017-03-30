@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:launchMode="singleTop">
+            <!--singleTop is added so that onBackPress can call onNewIntent-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,12 +23,26 @@
         <activity
             android:name=".SubActivity"
             android:label="Sub Activity"
-
-            android:parentActivityName=".MainActivity" >
+            android:launchMode="singleTop"
+            android:parentActivityName=".MainActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
+            <!--singleTop is added so that onBackPress can call onNewIntent-->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
+        </activity>
+
+        <!-- A child of the main activity -->
+        <activity
+            android:name=".SubSubActivity"
+            android:label="Sub Sub Activity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".SubActivity" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <!--singleTop is added so that onBackPress can call onNewIntent-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SubActivity" />
         </activity>
     </application>
 

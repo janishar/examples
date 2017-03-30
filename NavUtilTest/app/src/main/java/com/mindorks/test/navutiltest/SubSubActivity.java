@@ -7,14 +7,11 @@ import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
-public class SubActivity extends AppCompatActivity {
+public class SubSubActivity extends AppCompatActivity {
 
     public static Intent getStartIntent(Context context) {
-        Intent intent = new Intent(context, SubActivity.class);
+        Intent intent = new Intent(context, SubSubActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         return intent;
     }
@@ -22,23 +19,12 @@ public class SubActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sub);
+        setContentView(R.layout.activity_sub_sub);
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-
-        final TextView textView = (TextView) findViewById(R.id.textView);
-
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                textView.setText("After the click state");
-                Intent intent = new Intent(SubActivity.this, SubSubActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -73,12 +59,6 @@ public class SubActivity extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
-        startActivity(MainActivity.getStartIntent(this));
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        Toast.makeText(this, "Sub Activity Resumed", Toast.LENGTH_SHORT).show();
+        startActivity(SubActivity.getStartIntent(this));
     }
 }
